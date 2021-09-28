@@ -17,15 +17,23 @@ def movie():
 # Create other functions for:
 #   - listing movies
 
+def print_movie(movie):
+    print(f"Title: {movie['title']}")
+    print(f"Director: {movie['director']}")
+    print(f"Release year: {movie['year']}")
+
 def listar():
     if len(movies) != 0:
-            pprint(movies)
+        for movie in movies:
+            print_movie(movie)
     else:
         print("No hay datos en el array de movies")
 #   - finding movies
 def buscar():
     title1 = input("Enter the movie title: ")
-
+    for movie in movies:
+        if movie["title"] == title1:
+            print_movie(movie)
 # And another function here for the user menu
 selection = input(MENU_PROMPT)
 while selection != 'q':
